@@ -19,7 +19,8 @@ class FunctionalTest(StaticLiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def wait_for(self, fn):
+    @staticmethod
+    def wait_for(fn):
         start_time = time.time()
         while True:
             try:
@@ -41,3 +42,6 @@ class FunctionalTest(StaticLiveServerTestCase):
                 if time.time() - start_time > MAX_WAIT:
                     raise e
                 time.sleep(0.5)
+
+    def get_item_input_box(self):
+        return self.browser.find_element_by_id('id_text')
