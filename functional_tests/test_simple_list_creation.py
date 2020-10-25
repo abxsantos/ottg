@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from functional_tests.base import FunctionalTest
+
+from .base import FunctionalTest
 
 
 class NewVisitorTest(FunctionalTest):
@@ -60,7 +61,6 @@ class NewVisitorTest(FunctionalTest):
 
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming through from cookies etc
-        self.browser.refresh()
         self.browser.quit()
         self.browser = webdriver.Firefox()
 
@@ -89,4 +89,3 @@ class NewVisitorTest(FunctionalTest):
         self.assertIn('Buy milk', page_text)
 
         # Satisfied, they both go back to sleep
-

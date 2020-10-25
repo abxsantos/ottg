@@ -1,25 +1,9 @@
-import time
-
-from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.keys import Keys
 
-from functional_tests.base import FunctionalTest
-
-MAX_WAIT = 10
+from .base import FunctionalTest
 
 
 class ItemValidationTest(FunctionalTest):
-
-    @staticmethod
-    def wait_for( fn):
-        start_time = time.time()
-        while True:
-            try:
-                return fn()
-            except (AssertionError, WebDriverException) as e:
-                if time.time() - start_time > MAX_WAIT:
-                    raise e
-                time.sleep(0.5)
 
     def test_cannot_add_empty_list_items(self):
         # Edith goes to the home page and accidentally tries to submit
