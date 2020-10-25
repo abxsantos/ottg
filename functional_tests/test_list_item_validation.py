@@ -1,5 +1,4 @@
 import time
-from unittest import skip
 
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.keys import Keys
